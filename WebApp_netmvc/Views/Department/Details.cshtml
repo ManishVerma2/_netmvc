@@ -1,0 +1,40 @@
+﻿@model Department
+
+@{
+    Layout = "Manish_Layout";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Department Details</h2>
+                </div>
+                <div class="card-body">
+                    <h3>Id : @Model.Id</h3>
+                    <h3>Name : @Model.DName</h3>
+                    <h3>Loc : @Model.Loc</h3>
+                </div>
+                <div class="card-footer">
+                    <a href="/Department" class="btn btn-primary">Back</a>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<table class="table table-bordered">
+    <tr> 
+        <th>Id</th>
+        <th>Department Name</th>
+        <th>Location</th>
+    </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.DName</td>
+            <td>@Model.Loc</td>
+        </tr>
+</table>*@

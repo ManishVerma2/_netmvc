@@ -1,0 +1,1 @@
+﻿document.getElementById("manishjs").style.color = "red";

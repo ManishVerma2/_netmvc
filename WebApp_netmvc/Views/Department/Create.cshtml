@@ -1,0 +1,23 @@
+﻿@model Department
+
+<h1>@ViewData["Title"]</h1>
+<form asp-action="Create" asp-controller="Department" method="post">
+    <div class="mb-3">
+        <label asp-for="Id" class="form-lable">Department NO. </label>
+        <input type="text" class="form-control" asp-for="Id"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DName" class="form-lable">Department Name </label>
+        <input type="text" class="form-control" asp-for="DName" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Loc" class="form-lable">Location </label>
+        <select class="form-select" asp-for="Loc" asp-items="Html.GetEnumSelectList<location>()">
+            @*<option value="0">None</option>
+            <option value="CHD">Chandigher</option>
+            <option value="PKL">Panchkula</option>
+            <option value="MHL">Mohali</option>*@
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
