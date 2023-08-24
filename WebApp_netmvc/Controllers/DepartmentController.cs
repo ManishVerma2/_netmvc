@@ -7,10 +7,14 @@ namespace WebApp_netmvc.Controllers
     public class DepartmentController : Controller
     {
         private readonly IDepartmentRepository repository;
+        private readonly ICountryRepository srepository;
 
-        public DepartmentController(IDepartmentRepository repository) // dependency injection
+      
+
+        public DepartmentController(IDepartmentRepository repository, ICountryRepository srepository) // dependency injection
         {
             this.repository = repository;
+            this.srepository = srepository;
         }
         public IActionResult Index()
         {
@@ -21,6 +25,12 @@ namespace WebApp_netmvc.Controllers
             return View(departments);
         }
 
+        public IActionResult GetCountry(int id)
+        {
+            var list = srepository.GetById(id);
+
+            return Json(list);
+        }
         public IActionResult Details(int? id)
         {
             Department department=repository.GetDepartmentById(id??10);
@@ -31,6 +41,10 @@ namespace WebApp_netmvc.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            CountryRepository countryRepository = new CountryRepository();
+            ViewBag.Countries = countryRepository.GetAll();
+            StateRepository stateRepository = new StateRepository();
+            ViewBag.States=stateRepository.GetAll();
             ViewData["Title"] = "Create New Department";
             return View();
         }

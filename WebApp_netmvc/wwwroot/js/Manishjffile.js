@@ -1,1 +1,1 @@
-﻿document.getElementById("manishjs").style.color = "red";
+﻿/*document.getElementById("manishjs").style.color = "red";*/

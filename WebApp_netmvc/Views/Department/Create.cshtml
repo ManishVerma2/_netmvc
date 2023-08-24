@@ -11,6 +11,21 @@
         <input type="text" class="form-control" asp-for="DName" />
     </div>
     <div class="mb-3">
+        <label asp-for="State" class="form-lable">State </label>
+        <select class="form-select" id="state" asp-for="State" asp-items="@(new SelectList(ViewBag.States,"Id","SName"))">
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Country" class="form-lable">Country </label>
+        <select class="form-select" id="country" asp-for="Country" >
+        </select>
+    </div>
+    @*<div class="mb-3">
+        <label asp-for="Country" class="form-lable">Country </label>
+        <select class="form-select" asp-for="Country" asp-items="@(new SelectList(ViewBag.Countries,"Id","CName"))">
+        </select>
+    </div>*@
+    <div class="mb-3">
         <label asp-for="Loc" class="form-lable">Location </label>
         <select class="form-select" asp-for="Loc" asp-items="Html.GetEnumSelectList<location>()">
             @*<option value="0">None</option>
@@ -21,3 +36,8 @@
     </div>
     <button type="submit" class="btn btn-info">Submit</button>
 </form>
+@section Scripts{
+    <script src="~/js/manishjffile.js"></script>
+}
+
+
