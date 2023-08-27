@@ -7,31 +7,30 @@ namespace WebApp_netmvc.Models
         List<State> _states=new List<State>();
         public StateRepository()
         {
-            _states.Add(new State() {Id=101,SName="Chandigher",SCode="CHD",Country=new Country() { Id = 1, CName = "India", CCode = "IN" } });
-            _states.Add(new State() {Id=102,SName="Delhi",SCode="DL", Country = new Country() { Id = 1, CName = "India", CCode = "IN" } });
-            _states.Add(new State() {Id=103,SName="Mumbai",SCode="MB", Country = new Country() { Id = 1, CName = "India", CCode = "IN" } });
-            _states.Add(new State() {Id=104,SName="KOlkata",SCode="KL", Country = new Country() { Id = 1, CName = "India", CCode = "IN" } });
-
-            _states.Add(new State() { Id = 105, SName = "Alabama", SCode = "AL",Country=new Country() { Id = 2, CName = "America", CCode = "US" } });
-            _states.Add(new State() { Id = 106, SName = "Alaska", SCode = "AK", Country = new Country() { Id = 2, CName = "America", CCode = "US" } });
-            _states.Add(new State() { Id = 107, SName = "Colorado", SCode = "CO", Country = new Country() { Id = 2, CName = "America", CCode = "US" } });
-            _states.Add(new State() { Id = 108, SName = "Delaware", SCode = "DE", Country = new Country() { Id = 2, CName = "America", CCode = "US" } });
-
-            _states.Add(new State() { Id = 109, SName = "Alberta", SCode = "AB", Country = new Country() { Id = 3, CName = "Canada", CCode = "CA" } });
-            _states.Add(new State() { Id = 110, SName = "Manitoba", SCode = "MA", Country = new Country() { Id = 3, CName = "Canada", CCode = "CA" } });
-            _states.Add(new State() { Id = 111, SName = "Nova Scotia", SCode = "NS", Country = new Country() { Id = 3, CName = "Canada", CCode = "CA" } });
-            _states.Add(new State() { Id = 112, SName = "Yukon", SCode = "YU", Country = new Country() { Id = 3, CName = "Canada", CCode = "CA" } });
-
-            _states.Add(new State() { Id = 113, SName = "Victoria", SCode = "VI" , Country = new Country() { Id = 4, CName = "Australia", CCode = "AU" } });
-            _states.Add(new State() { Id = 114, SName = "Queensland", SCode = "QU", Country = new Country() { Id = 4, CName = "Australia", CCode = "AU" } });
-            _states.Add(new State() { Id = 115, SName = "Western Australia", SCode = "WAUS", Country = new Country() { Id = 4, CName = "Australia", CCode = "AU" } });
-            _states.Add(new State() { Id = 116, SName = "Tasmania", SCode = "TA", Country = new Country() { Id = 4, CName = "Australia", CCode = "AU" } });
-
+            _states.Add(new State() { Id=1,SName="Haryana",SCode="HR",CId=1});
+            _states.Add(new State() { Id=2,SName="Rajsthan",SCode="RJ",CId=1});
+            _states.Add(new State() { Id=3,SName="Punjab",SCode="PB",CId=1});
+            _states.Add(new State() { Id=4,SName= "Alabama", SCode="AL",CId=2});
+            _states.Add(new State() { Id=5,SName= "California", SCode="CF",CId=2});
+            _states.Add(new State() { Id=6,SName= "New York", SCode="NY",CId=2});
+            _states.Add(new State() { Id=7,SName= "Ontario", SCode="OT",CId=3});
+            _states.Add(new State() { Id=8,SName= "Manitoba", SCode="MA",CId=3});
+            _states.Add(new State() { Id=9,SName= "Victoria", SCode="VI",CId=4});
+            _states.Add(new State() { Id=10,SName= "Queensland", SCode="QL",CId=4});
         }
-
         public List<State> GetAll()
         {
             return _states;
+        }
+
+        public List<State> GetStateByCountry(int CId)
+        {
+           return _states.FindAll(e=>e.CId== CId);
+        }
+
+        public State? Get(int id)
+        {
+            return _states.FirstOrDefault(e => e.Id == id);
         }
     }
 }

@@ -14,9 +14,5 @@
         {
             return _countries;
         }
-        public Country GetById(int id)
-        {
-            return _countries.FirstOrDefault(c => c.Id == id);
-        }
     }
 }

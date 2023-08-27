@@ -26,7 +26,7 @@
 
         public Student GetStudentById(int id)
         {
-            return _Students.FirstOrDefault(s => s.Id == id);
+            return _Students.First(s => s.Id == id);
         }
 
         public Student GetStudentByName(string name)
